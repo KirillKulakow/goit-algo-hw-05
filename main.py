@@ -8,38 +8,36 @@ from modules.algoKnutMorrisPratt import knuth_morris_pratt_search
 
 def test_algorithms():
     # Test with different text types and patterns
+    # use text from ./text/...txt files
+    # Open and read text files
+    with open("./text/first.txt", "r", encoding="utf-8") as f:
+        first_text = f.read()
+
+    with open("./text/second.txt", "r", encoding="utf-8") as f:
+        second_text = f.read()
+
+    # Test cases based on text types
     test_cases = [
         {
-            "name": "Large repeated text",
-            "text": "ABABDABACDABABCABAB" * 1000,
+            "name": "Short Text",
+            "text": "ABABDABACDABABCABAB",
             "pattern": "ABABCABAB",
-            "iterations": 10
+            "iterations": 100000
         },
         {
-            "name": "Pattern at the end",
-            "text": "A" * 10000 + "ABABCABAB",
-            "pattern": "ABABCABAB",
-            "iterations": 10
+            "name": "First Text",
+            "text": first_text,
+            "pattern": "Реалізація",  # Adjust pattern as needed
+            "iterations": 1000
         },
         {
-            "name": "Pattern not found",
-            "text": "ABABDABACDABABCABAB" * 1000,
-            "pattern": "XYXYXYXYX",
-            "iterations": 10
-        },
-        {
-            "name": "Long text, short pattern",
-            "text": "ABCDEFGHIJKLMNOPQRSTUVWXYZ" * 1000,
-            "pattern": "XYZ",
-            "iterations": 10
-        },
-        {
-            "name": "Long pattern",
-            "text": "ABCDEFGHIJKLMNOPQRSTUVWXYZ" * 1000,
-            "pattern": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-            "iterations": 10
+            "name": "Second Text",
+            "text": second_text,
+            "pattern": "Реалізація",  # Adjust pattern as needed
+            "iterations": 100
         }
     ]
+
 
     for case in test_cases:
         print(f"\n--- Testing with {case['name']} ---")

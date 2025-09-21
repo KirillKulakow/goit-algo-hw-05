@@ -4,16 +4,20 @@
 
 Based on the performance tests of the three string search algorithms:
 
-1. **Boyer-Moore** was the fastest algorithm in 4 out of 5 test cases:
-   - Large repeated text: 0.021s
-   - Pattern not found: 0.003s (significantly faster)
-   - Long text with short pattern: 0.019s
-   - Long pattern: 0.016s
+1. **Boyer-Moore** was consistently the fastest algorithm in all test cases:
+   - Short Text: 0.153477s
+   - First Text (long): 0.898211s
+   - Second Text: 0.044542s
 
-2. **Knuth-Morris-Pratt (KMP)** was fastest in 1 test case:
-   - Pattern at the end: 0.013s
+2. **Knuth-Morris-Pratt (KMP)** showed moderate performance:
+   - Short Text: 0.304219s
+   - First Text (long): 6.457286s
+   - Second Text: 0.287936s
 
-3. **Rabin-Karp** was not the fastest in any test case, but performed consistently across different scenarios.
+3. **Rabin-Karp** was the slowest in all test cases:
+   - Short Text: 0.291916s
+   - First Text (long): 7.655416s
+   - Second Text: 0.342471s
 
 ### Conclusion
-Boyer-Moore generally shows the best performance, especially when patterns are not found or with longer texts. KMP can be more efficient in specific cases where the pattern appears near the end of the text.
+Boyer-Moore consistently demonstrates superior performance across all tested text scenarios. The performance gap is particularly notable in longer texts, where Boyer-Moore is approximately 7-8 times faster than Rabin-Karp and KMP. This makes Boyer-Moore the recommended choice for general string searching applications.
